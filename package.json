@@ -1,0 +1,21 @@
+{
+    "name": "projeto_Udemy",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./nodeReact_/backend/src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
+    },
+    "keywords": [],
+    "author": "johnatan paixao",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "date-fns": "^2.23.0",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "mongoose": "^6.0.3",
+        "nodemon": "^2.0.12"
+    }
+}
