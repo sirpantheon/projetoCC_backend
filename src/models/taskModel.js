@@ -12,7 +12,8 @@ const taskSchema = new Schema({
     devolucao: { type: Boolean, default: false },
     privativo: { type: String },
     chave: { type: Number },
-    descricao: { type: String }
+    descricao: { type: String },
+    image: { data: Buffer, contentType: String }
 });
 
 module.exports = mongoose.model('task', taskSchema)

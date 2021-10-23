@@ -1,13 +1,26 @@
 const express = require("express")
 const router = express.Router();
+const multer = require("multer");
+const path = require("path");
 
 const taskController = require("../controllers/taskController")
 const puerpera = require("../controllers/taskControllerP")
 const taskValidator = require("../middlewares/taskValidation")
+  
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.filename + '-' + Date.now() + path.extname(file.originalname))
+    }
+});
+  
+const upload = multer({ storage: storage });
 
 router.get('/task')
 
-router.post('/', taskValidator, taskController.create)
+router.post('/', taskValidator,upload.single('image'), taskController.create)
 router.put('/:id', taskValidator, taskController.update)
 router.get('/:id', taskController.show)
 router.delete('/:id', taskController.delete)
