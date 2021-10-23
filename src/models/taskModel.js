@@ -13,7 +13,7 @@ const taskSchema = new Schema({
     privativo: { type: String },
     chave: { type: Number },
     descricao: { type: String },
-    image: { data: Buffer, contentType: String }
+    image: { type: String }
 });
 
 module.exports = mongoose.model('task', taskSchema)
